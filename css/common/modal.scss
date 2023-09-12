@@ -1,0 +1,153 @@
+@use '../mixin.scss' as m;
+
+.modal-close-btn {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  font-size: 2em;
+  opacity: .7;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.video-modal {
+  display: none;
+  position: fixed;
+  z-index: 101;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+
+  img.youtube-ratio {
+    @include m.pos-center;
+    max-width: 90%;
+    max-height: 90%;
+    opacity: 0;
+  }
+
+  iframe {
+    @include m.pos-center;
+
+  }
+
+
+}
+
+//.video-modal
+
+.person-modal {
+  display: none;
+  position: fixed;
+  z-index: 101;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba($color: #000000, $alpha: .9);
+  overflow: auto;
+  @include m.scrollbar;
+
+  div.center {
+    width: min(90%, 600px);
+    margin: 10vh auto;
+    text-align: center;
+
+    .person-photo {
+      width: min(80%, 300px);
+      margin: 0 auto;
+      margin-bottom: 30px;
+      border: 5px solid #eee;
+    }
+
+    h4 {
+      text-align: left;
+      color: var(--green);
+      font-style: italic;
+      text-transform: uppercase;
+      font-size: 1.5em;
+      margin-bottom: 25px;
+      border-bottom: 1px solid var(--green);
+      padding-bottom: 5px;
+    }
+
+    ul {
+        padding: 10px;
+        border-radius: 5px;
+        background-color: rgba($color: #fff, $alpha: .1);
+        height: 140px;
+        box-sizing: border-box;
+        overflow: hidden;
+        margin-bottom: 20px;
+        transition: height .5s;
+        
+      li {
+    
+        padding: 5px;
+        border-bottom: 1px dotted rgba($color: #fff, $alpha: .5);
+      }
+    }
+
+    ul.profile {
+
+      li {
+     
+
+        &:not(:last-child) {
+          @include m.ellipsis
+        }
+
+        small {
+          opacity: .7;
+          margin-right: 10px;
+        }
+
+        em {
+          font-style: italic;
+        }
+      }
+
+    }
+
+    ul.filmography{
+      li{
+        time{
+          opacity: .7;
+          margin-right: 10px;
+          font-style: italic;
+        }
+        a{
+          em{font-size: 1.1em;}
+          small{font-style: italic;}
+          &:hover{
+            text-decoration: underline;
+            color: var(--green);
+          }
+        }
+      }
+    }
+  }
+  .more-btn{
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: .8em;
+    transition: all .5s;
+  
+    .close{
+      display: none;
+    }
+
+    &.active{
+      .close{
+        display: block;
+      }
+      .open{
+        display: none;
+      }
+    }
+  }
+}

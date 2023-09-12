@@ -1,0 +1,7 @@
+@use '../mixin.scss' as m;
+
+main.home-content{
+  section.common-section{
+    width: min(90% ,1600px);
+  }
+}

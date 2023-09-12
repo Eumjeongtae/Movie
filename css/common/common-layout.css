@@ -1,0 +1,289 @@
+body {
+  background-color: var(--navy);
+  background-image: url(../../img/line-pattern.png);
+  background-size: 15px;
+  animation: bgmove 100s infinite linear;
+}
+@media (hover: hover) {
+  body::-webkit-scrollbar-tra ck {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: var(#000);
+  }
+  body::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+    background-color: transparent;
+  }
+  body::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: var(--sky);
+  }
+}
+@media screen and (min-width:1000px) {
+  body {
+    padding-top: 80px;
+  }
+}
+@media screen and (max-width:1000px) {
+  body {
+    padding-top: 60px;
+  }
+}
+body main {
+  min-height: 50vh;
+  overflow: hidden;
+}
+
+@keyframes bgmove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+section.common-section {
+  padding: 30px 0;
+  margin: 0 auto;
+}
+section.common-section .no-data {
+  font-style: italic;
+  margin-left: 20px;
+}
+section.common-section h2 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+section.common-section h2 i {
+  color: var(--sky);
+  margin-right: 10px;
+  font-size: 1.5em;
+}
+section.common-section h2 em {
+  font-size: 1.3em;
+  font-weight: 600;
+}
+section.common-section h2::after {
+  content: "";
+  flex: 1;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  margin-left: 20px;
+}
+
+section.movie-grid-section div.grid-container figure {
+  padding: 0 10px;
+  height: auto;
+  box-sizing: border-box;
+}
+section.movie-grid-section div.grid-container figure a {
+  display: block;
+  height: 100%;
+  background-color: var(--sky);
+  transition: all 0.3s;
+}
+section.movie-grid-section div.grid-container figure a:hover {
+  position: relative;
+  transform: scale(1.1);
+  z-index: 12;
+  background: var(--green);
+}
+section.movie-grid-section div.grid-container figure a:hover div.imgbox img {
+  filter: brightness(100%);
+}
+section.movie-grid-section div.grid-container figure a div.imgbox {
+  position: relative;
+  overflow: hidden;
+}
+section.movie-grid-section div.grid-container figure a div.imgbox img {
+  width: 100%;
+  filter: brightness(80%);
+  transition: all 0.3s;
+}
+section.movie-grid-section div.grid-container figure a div.imgbox span {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 80px;
+  height: 80px;
+  background-color: red;
+  transform: rotate(45deg);
+}
+section.movie-grid-section div.grid-container figure a div.imgbox small {
+  position: absolute;
+  right: 5px;
+  top: 6px;
+  color: #fff;
+}
+section.movie-grid-section div.grid-container figure a figcaption {
+  padding: 10px;
+}
+section.movie-grid-section div.grid-container figure a figcaption h3,
+section.movie-grid-section div.grid-container figure a figcaption p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+section.movie-grid-section div.grid-container figure a figcaption h3 {
+  font-size: 1.1em;
+  font-weight: 600;
+}
+section.movie-grid-section div.grid-container figure a figcaption p {
+  font-size: 0.9em;
+}
+
+section.swiper-section .carousel {
+  position: relative;
+}
+section.swiper-section .carousel::before, section.swiper-section .carousel::after {
+  content: "";
+  position: absolute;
+  z-index: 13;
+  width: 100%;
+  height: 100%;
+  right: 100%;
+  top: 0;
+  -webkit-backdrop-filter: blur(2px) brightness(0.6);
+          backdrop-filter: blur(2px) brightness(0.6);
+}
+section.swiper-section .carousel::after {
+  left: 100%;
+}
+@media (hover: hover) {
+  section.swiper-section .carousel:hover .next,
+  section.swiper-section .carousel:hover .prev {
+    opacity: 1;
+  }
+}
+section.swiper-section .carousel .next,
+section.swiper-section .carousel .prev {
+  display: none;
+  z-index: 12;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.5em;
+  opacity: 0;
+  transition: all 0.5s;
+}
+@media (hover: hover) {
+  section.swiper-section .carousel .next,
+  section.swiper-section .carousel .prev {
+    display: block;
+  }
+}
+section.swiper-section .carousel .prev {
+  left: 0;
+}
+section.swiper-section .carousel .next {
+  right: 0;
+}
+
+section.wrap-section .grid-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+section.wrap-section .grid-container figure {
+  margin-bottom: 20px;
+}
+@media screen and (min-width:1400px) {
+  section.wrap-section .grid-container figure {
+    width: 20%;
+  }
+}
+@media screen and (min-width:1000px) and (max-width:1400px) {
+  section.wrap-section .grid-container figure {
+    width: 25%;
+  }
+}
+@media screen and (min-width:500px) and (max-width:1000px) {
+  section.wrap-section .grid-container figure {
+    width: 33.3333%;
+  }
+}
+@media screen and (max-width:500px) {
+  section.wrap-section .grid-container figure {
+    width: 50%;
+  }
+}
+
+section.scroll-section .grid-container {
+  overflow-x: auto;
+  display: flex;
+  padding-bottom: 20px;
+}
+@media (hover: hover) {
+  section.scroll-section .grid-container::-webkit-scrollbar-tra ck {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: var(#000);
+  }
+  section.scroll-section .grid-container::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+    background-color: transparent;
+  }
+  section.scroll-section .grid-container::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: var(--sky);
+  }
+}
+section.scroll-section .grid-container > * {
+  flex-shrink: 0;
+  border: 5px solid #eee;
+  box-sizing: border-box;
+  background-color: #ccc;
+  overflow: hidden;
+  margin-right: 15px;
+}
+section.scroll-section .grid-container > *:hover img {
+  filter: brightness(100%);
+  transform: scale(1.1);
+}
+section.scroll-section .grid-container > * img {
+  width: 100%;
+  filter: brightness(70%);
+  transition: all 0.5s;
+}
+
+section.video-section .grid-container button {
+  width: 250px;
+}
+
+section.image-section .grid-container a {
+  width: 250px;
+  display: block;
+}
+
+section.people-section figure {
+  width: 170px;
+}
+section.people-section figure:hover figcaption {
+  background-color: var(--sky);
+}
+section.people-section figure:hover figcaption em {
+  color: #fff;
+}
+section.people-section figure figcaption {
+  position: relative;
+  background-color: var(--navy);
+  padding: 10px;
+  transition: all 0.3s;
+}
+section.people-section figure figcaption em {
+  display: block;
+  color: var(--green);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+section.people-section figure figcaption b {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-style: italic;
+}/*# sourceMappingURL=common-layout.css.map */

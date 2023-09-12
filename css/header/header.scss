@@ -1,0 +1,120 @@
+@use '../mixin.scss' as m;
+
+header {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--navy);
+  background-image: url(../../img/check-pattern.png);
+  background-size: 20px;
+  animation: bgmove 150s infinite linear;
+  @include m.box-shadow;
+
+  @media #{m.$min-lg} {
+    height: 80px;
+  }
+
+  @media #{m.$max-lg} {
+    height: 60px;
+  }
+
+  .center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    height: inherit;
+    margin: 0 auto;
+
+    h1 {
+      height: 55%;
+      a {
+        display: flex;
+        height: 100%;
+        perspective: 1000px;
+        img {
+          height: 100%;
+          margin-right: 10px;
+          transition: transform .5s;
+        }
+      }
+      &:hover{
+        img:first-of-type{ transform: rotateY(360deg); }
+        img:last-of-type{transform: rotateX(360deg);}
+      }
+    }
+    .gnb{
+      position: relative;
+      .menu-list{
+        position: absolute;
+        right: 115%;
+        top: 0;
+        button.toggle-btn{
+        
+          &:active{
+            color: var(--green);
+          }
+        }
+        ul{
+          display: none;
+          position: absolute;
+          padding: 20px;
+          background: var(--navy);
+          border-radius: 5px;
+          top: 30px;
+          left: 50%;
+          transform: translateX(-50%);
+          &.active{
+            display: block;
+          }
+          li{
+            margin: 7px 0;
+            white-space: nowrap;
+            text-align: center;
+            a:hover{
+              text-decoration: underline;
+              color: var(--green);
+            } 
+          }
+        }
+      }
+      
+      a.goto-search{
+        font-weight: 600;
+        transition: color .5s;
+        
+        &:hover{
+          color: var(--green);
+        }
+      }
+    }
+  }
+}
+
+.top-btn{
+  position: fixed;
+  z-index: 90;
+  right: 20px;
+  bottom: 20px;
+  width: 40px;
+  height: 40px;
+  background: var(--sky);
+  transition: all .5s;
+  opacity: 0;
+  pointer-events: none;
+  @include m.box-shadow;
+  @media (hover:hover){ // 마우스가 있는 장치 일떄
+    &:hover{
+      background: var(--green);
+    }
+    
+  }
+
+  &.active{
+    opacity: 1;
+    pointer-events: all;
+  }
+
+}

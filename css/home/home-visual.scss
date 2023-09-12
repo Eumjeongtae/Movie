@@ -1,0 +1,113 @@
+@use '../mixin.scss' as m;
+
+.home-visual{
+  position: relative;
+  margin-bottom: 5vh;
+  height: min(70vh,450px);
+  overflow: hidden;
+  background-color: var(--navy );
+  cursor: grab;
+  @include m.box-shadow;
+  &::before{
+    content: '';
+    z-index: 11;
+    @include m.pos-center;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    border: 1px solid rgba(#fff,.3);
+    pointer-events: none;
+
+  }
+
+  div.swiper-wrapper{
+    height: 100%;
+
+    figure.swiper-slide{
+      position: relative;
+      height: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
+      &.swiper-slide-active img{
+        transform: scale(1);
+      }
+      &:hover img{
+        filter: brightness(.8)
+      }
+      img{
+        @include m.cover;
+        transition: transform 5s linear,filter 1s;
+        filter: brightness(.6);
+        transform: scale(1.1);
+      }
+
+      figcaption{
+        position: absolute;
+        left: 5%; top: 50%;
+        transform: translateY(-50%);
+        width: 90%;
+        
+        small{
+          font-weight: 600;
+          font-size: 1.2em;
+        }
+        h6{
+          margin: 5px 0 0px;
+          font-size: min(8vw,5em);
+          white-space: nowrap;
+          line-height: 1.3em;
+          font-weight: 600;
+
+          @media #{m.$max-xlg}{
+            @include m.ellipsis
+          }
+          
+        }
+        p{
+          margin:  20px 0;
+          max-width: 500px;
+        }
+        button{
+          i{margin-right: 5px;}
+          &.play-btn{
+            margin-right: 10px;
+            @include m.button(#fff,#fff,rgba(#fff,.3),#000,#fff,rgba(#fff,.8))
+          }
+          &.detail-btn{
+            @include m.button(#fff,#fff,rgba(#000,.3),#fff,#000,rgba(#000,.8))
+          }
+        }
+      }//figcaption
+    }
+  }
+
+  button.wheel-btn{
+    position: absolute;
+    z-index: 12;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: 1px solid rgba(#fff,.5);
+    background-color: rgba(#fff,.3);
+    &::before{
+      content: '';
+      @include m.pos-center;
+      width: 30px;
+      height: 30px;
+      border: 1px solid rgba(#fff,.5);
+      border-radius: 50%;
+
+    }
+    i{
+      animation: jump .5s infinite alternate; 
+      color: 1px solid rgba(#fff,.7);;
+    }
+  }
+}
+@keyframes jump{
+  0%{transform: translateY(-3px);}
+  100%{transform: translateY(3px);}
+}

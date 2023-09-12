@@ -1,0 +1,68 @@
+main.search-content {
+  position: relative;
+  width: min(90%, 1400px);
+  margin: 0 auto;
+  margin-top: 15vh;
+}
+
+form.search-form {
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+form.search-form fieldset.search-keyword {
+  display: flex;
+  border: none;
+}
+form.search-form fieldset.search-keyword > * {
+  height: 50px;
+  border: none;
+  background-color: #fff;
+}
+form.search-form fieldset.search-keyword .search-icon, form.search-form fieldset.search-keyword button {
+  width: 50px;
+  line-height: 50px;
+  color: var(--sky);
+  text-align: center;
+  font-size: 1.2em;
+}
+form.search-form fieldset.search-keyword input {
+  flex: 1;
+  color: var(--sky);
+  font-size: 1.7em;
+  outline: none;
+}
+form.search-form fieldset.search-keyword input::-webkit-calendar-picker-indicator {
+  display: none !important;
+}
+form.search-form fieldset.search-keyword input::-moz-placeholder {
+  color: #ccc;
+}
+form.search-form fieldset.search-keyword input::placeholder {
+  color: #ccc;
+}
+form.search-form fieldset.genre-btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 30px 0;
+  border: none;
+}
+form.search-form fieldset.genre-btns button {
+  padding: 7px 20px;
+  background-color: var(--sky);
+  margin: 5px;
+  border-radius: 5px;
+  transition: all 0.5s;
+}
+form.search-form fieldset.genre-btns button:hover {
+  background-color: var(--green);
+}
+form.search-form fieldset.genre-btns button.active {
+  background-color: var(--green);
+}
+
+.trigger {
+  border: 1px solid red;
+  opacity: 0;
+}/*# sourceMappingURL=search-form.css.map */
